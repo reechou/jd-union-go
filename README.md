@@ -1,4 +1,4 @@
-# jingdong_union_go
+# jd_union_go
 
 [京东联盟](https://union.jd.com/helpcenter/12188-12384-46301)SDK
 

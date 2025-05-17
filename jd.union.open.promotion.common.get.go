@@ -24,6 +24,7 @@ type JdUnionOpenPromotionCommonGetResult struct {
 
 type PromotionCommonURL struct {
 	ClickURL string `json:"clickURL"`
+	JCommand string `json:"jCommand"`
 }
 
 func (app *App) JdUnionOpenPromotionCommonGet(params map[string]interface{}) (result *JdUnionOpenPromotionCommonGetResult, err error) {
@@ -33,7 +34,6 @@ func (app *App) JdUnionOpenPromotionCommonGet(params map[string]interface{}) (re
 		log.Println(string(body))
 		return
 	}
-	log.Printf("%v", string(body))
 	if err = json.Unmarshal(body, resp); err != nil {
 		return
 	}

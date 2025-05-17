@@ -55,7 +55,6 @@ type JdUnionOpenActivityQueryImage struct {
 
 func (app *App) JdUnionOpenActivityQuery(params map[string]interface{}) (result *JdUnionOpenActivityQueryResult, err error) {
 	body, err := app.Request("jd.union.open.activity.query", map[string]interface{}{"activityReq": params})
-	log.Println(string(body))
 	resp := &JdUnionOpenActivityQueryTopLevel{}
 	if err != nil {
 		log.Println(string(body))

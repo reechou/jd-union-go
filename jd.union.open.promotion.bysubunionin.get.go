@@ -23,8 +23,11 @@ type JdUnionOpenPromotionBysubunionidGetResult struct {
 }
 
 type PromotionUrl struct {
-	ClickURL string `json:"clickURL"`
-	ShortURL string `json:"shortURL"`
+	ClickURL        string `json:"clickURL"`
+	ShortURL        string `json:"shortURL"`
+	JCommand        string `json:"jCommand"`
+	JShortCommand   string `json:"jShortCommand"`
+	WeChatShortLink string `json:"weChatShortLink"`
 }
 
 func (app *App) JdUnionOpenPromotionBysubunionidGet(params map[string]interface{}) (result *JdUnionOpenPromotionBysubunionidGetResult, err error) {

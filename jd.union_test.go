@@ -1,16 +1,19 @@
 package jingdong_union_go
 
 import (
-	"fmt"
 	"log"
 	"testing"
 )
 
 var app = &App{
-	ID:     "xxxxx",
-	Key:    "xxxxx",
-	Secret: "xxxxx",
+	ID:     "xx",
+	Key:    "xx",
+	Secret: "xx",
+	debug:  true,
 }
+
+var positonId = 0
+var orderId = 0
 
 // 获取商品类目
 func TestOpenCategoryGoodsGet(t *testing.T) {
@@ -75,12 +78,12 @@ func TestOpenGoodsPromotionGoodsInfoQuery(t *testing.T) {
 // 获取通用推广链接
 func TestOpenPromotionCommonGet(t *testing.T) {
 	res, err := app.JdUnionOpenPromotionCommonGet(map[string]interface{}{
-		"subUnionId": "test_subunionid",
-		"ext1":       "test_ext",
+		"subUnionId": "xc618",
+		"ext1":       "100_618_618",
 		"siteId":     app.ID,
-		"materialId": "https://wqitem.jd.com/item/view?sku=43415523405",
-		"positionId": 1000,
-		"couponUrl":  "http://coupon.jd.com/ilink/couponSendFront/send_index.action?key=02d2b6ff587c42fda6d4cac7ff1c2d6a&roleId=20498843&to=mall.jd.com/index-821028.html",
+		"materialId": "https://daojia.jd.com/activity/union/middlePage/index.html?channel=wm38094",
+		"positionId": positonId,
+		"command":    1,
 	})
 	log.Println(res, err)
 }
@@ -94,20 +97,38 @@ func TestOpenOrderQuery(t *testing.T) {
 		"pageNo":   1,
 		"pagesize": 500,
 	})
+	log.Println(res, err)
+}
 
+func TestJdUnionOpenOrderRowQuery(t *testing.T) {
+	//单品查询
+	res, err := app.JdUnionOpenOrderRowQuery(map[string]interface{}{
+		"type":      1, // 订单时间查询类型(1：下单时间，2：完成时间（购买用户确认收货时间），3：更新时间
+		"startTime": "2025-05-17 15:23:00",
+		"endTime":   "2025-05-17 16:23:00",
+		"pageIndex": 1,
+		"pageSize":  500,
+		"orderId":   orderId,
+	})
 	log.Println(res, err)
 }
 
 // 通过subUnionid获取推广链接
 // https://wqitem.jd.com/item/view?sku=
 func TestOpenPromotionBySubUnionIdGet(t *testing.T) {
-	skuId := 43415523405
 	res, err := app.JdUnionOpenPromotionBysubunionidGet(map[string]interface{}{
-		"subUnionId": "{\"u\":\"1020\"}",
-		"positionId": 1000,
-		"chainType":  3,
-		"materialId": fmt.Sprintf("https://wqitem.jd.com/item/view?sku=%d", skuId),
-		"couponUrl":  "http://coupon.jd.com/ilink/couponSendFront/send_index.action?key=02d2b6ff587c42fda6d4cac7ff1c2d6a&roleId=20498843&to=mall.jd.com/index-821028.html",
+		"subUnionId": "xc618",
+		"positionId": positonId,
+		"chainType":  2,
+		"materialId": "https://daojia.jd.com/activity/union/middlePage/index.html?channel=wm38094",
+	})
+	log.Println(res, err)
+}
+
+func TestJdUnionOpenStatisticsPromotionQuery(t *testing.T) {
+	res, err := app.JdUnionOpenStatisticsPromotionQuery(map[string]interface{}{
+		"activityUrl": "https://u.jd.com/r6PEcbm",
+		"fields":      "clickPv,estimateValidOrders",
 	})
 	log.Println(res, err)
 }

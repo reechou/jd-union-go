@@ -19,6 +19,8 @@ type App struct {
 	Name   string
 	Key    string
 	Secret string
+
+	debug bool
 }
 
 type JdUnionErrResp struct {
@@ -32,6 +34,10 @@ type ErrorResponse struct {
 
 const RouterURL = "https://api.jd.com/routerjson"
 const RequestMethod = "POST"
+
+func (app *App) Debug() {
+	app.debug = true
+}
 
 func (app *App) Request(method string, paramJSON map[string]interface{}) ([]byte, error) {
 	// common params
@@ -47,15 +53,21 @@ func (app *App) Request(method string, paramJSON map[string]interface{}) ([]byte
 	paramJSONStr, _ := json.Marshal(paramJSON)
 	params["360buy_param_json"] = string(paramJSONStr)
 	params["sign"] = GetSign(app.Secret, params)
-	log.Printf("Request: %s, %v", RouterURL, params)
+	if app.debug {
+		log.Printf("Request: %s, %s, %v", RouterURL, method, params)
+	}
 	resp, err := http.PostForm(RouterURL, app.Values(params))
-	log.Printf("Responce:%v %v", resp, err)
+	if app.debug {
+		log.Printf("Responce:%v %v", resp, err)
+	}
 	if err != nil {
 		return nil, err
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
-	log.Printf("Responce Body:%v ", string(body))
+	if app.debug {
+		log.Printf("Responce Body:%v ", string(body))
+	}
 	if err != nil {
 		return nil, err
 	}
