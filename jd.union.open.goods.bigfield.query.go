@@ -23,7 +23,6 @@ type JdUnionOpenGoodsBigfieldQueryResult struct {
 }
 
 func (app *App) JdUnionOpenGoodsBigfieldQuery(params map[string]interface{}) (result *JdUnionOpenGoodsBigfieldQueryResult, err error) {
-
 	body, err := app.Request("jd.union.open.goods.bigfield.query", map[string]interface{}{"goodsReq": params})
 	log.Println(string(body))
 	resp := &JdUnionOpenGoodsBigfieldQueryTopLevel{}

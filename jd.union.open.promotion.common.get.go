@@ -27,7 +27,6 @@ type PromotionCommonURL struct {
 }
 
 func (app *App) JdUnionOpenPromotionCommonGet(params map[string]interface{}) (result *JdUnionOpenPromotionCommonGetResult, err error) {
-
 	body, err := app.Request("jd.union.open.promotion.common.get", map[string]interface{}{"promotionCodeReq": params})
 	resp := &JdUnionOpenPromotionCommonGetTopLevel{}
 	if err != nil {

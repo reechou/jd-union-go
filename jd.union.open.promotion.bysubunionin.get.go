@@ -28,7 +28,6 @@ type PromotionUrl struct {
 }
 
 func (app *App) JdUnionOpenPromotionBysubunionidGet(params map[string]interface{}) (result *JdUnionOpenPromotionBysubunionidGetResult, err error) {
-
 	body, err := app.Request("jd.union.open.promotion.bysubunionid.get", map[string]interface{}{"promotionCodeReq": params})
 	resp := &JdUnionOpenPromotionBysubunionidGetTopLevel{}
 	if err != nil {

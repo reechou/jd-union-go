@@ -38,7 +38,6 @@ func GetString(i interface{}) string {
 		bytes, _ := json.Marshal(v)
 		return string(bytes)
 	}
-	return ""
 }
 
 func md5Hash(signStr string) string {

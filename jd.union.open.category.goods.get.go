@@ -30,7 +30,6 @@ type Cate struct {
 }
 
 func (app *App) JdUnionOpenCategoryGoodsGet(params map[string]interface{}) (result *JdUnionOpenCategoryGoodsGetResult, err error) {
-
 	body, err := app.Request("jd.union.open.category.goods.get", map[string]interface{}{"req": params})
 	resp := &JdUnionOpenCategoryGoodsGetTopLevel{}
 	if err != nil {

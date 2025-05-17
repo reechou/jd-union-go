@@ -84,7 +84,6 @@ type OrderRowGoodsInfo struct {
 }
 
 func (app *App) JdUnionOpenOrderRowQuery(params map[string]interface{}) (result *JdUnionOpenOrderRowQueryResult, err error) {
-
 	body, err := app.Request("jd.union.open.order.row.query", map[string]interface{}{"orderReq": params})
 
 	resp := &JdUnionOpenOrderRowQueryResponseTopLevel{}

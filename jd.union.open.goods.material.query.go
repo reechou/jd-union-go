@@ -16,7 +16,6 @@ type JdUnionOpenGoodsMaterialQueryResponse struct {
 }
 
 func (app *App) JdUnionOpenGoodsMaterialQuery(params map[string]interface{}) (result *JdUnionOpenGoodsQueryResult, err error) {
-
 	body, err := app.Request("jd.union.open.goods.material.query", map[string]interface{}{"goodsReq": params})
 
 	resp := &JdUnionOpenGoodsMaterialQueryTopLevel{}

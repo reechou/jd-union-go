@@ -22,7 +22,6 @@ type JdUnionOpenCouponGiftStopResult struct {
 }
 
 func (app *App) JdUnionOpenCouponGiftStop(params map[string]interface{}) (result *JdUnionOpenCouponGiftStopResult, err error) {
-
 	body, err := app.Request("jd.union.open.coupon.gift.stop", map[string]interface{}{"couponReq": params})
 	log.Println(string(body))
 	resp := &JdUnionOpenCouponGiftStopTopLevel{}
