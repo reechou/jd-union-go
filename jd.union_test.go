@@ -12,8 +12,9 @@ var app = &App{
 	debug:  true,
 }
 
-var positonId = 0
-var orderId = 0
+// positionId 推广位 id
+var positionId = 3101765874
+var orderId = 317375839975
 
 // 获取商品类目
 func TestOpenCategoryGoodsGet(t *testing.T) {
@@ -82,7 +83,7 @@ func TestOpenPromotionCommonGet(t *testing.T) {
 		"ext1":       "100_618_618",
 		"siteId":     app.ID,
 		"materialId": "https://daojia.jd.com/activity/union/middlePage/index.html?channel=wm38094",
-		"positionId": positonId,
+		"positionId": positionId,
 		"command":    1,
 	})
 	log.Println(res, err)
@@ -104,8 +105,8 @@ func TestJdUnionOpenOrderRowQuery(t *testing.T) {
 	//单品查询
 	res, err := app.JdUnionOpenOrderRowQuery(map[string]interface{}{
 		"type":      1, // 订单时间查询类型(1：下单时间，2：完成时间（购买用户确认收货时间），3：更新时间
-		"startTime": "2025-05-17 15:23:00",
-		"endTime":   "2025-05-17 16:23:00",
+		"startTime": "2025-05-23 11:23:00",
+		"endTime":   "2025-05-23 12:23:00",
 		"pageIndex": 1,
 		"pageSize":  500,
 		"orderId":   orderId,
@@ -118,9 +119,9 @@ func TestJdUnionOpenOrderRowQuery(t *testing.T) {
 func TestOpenPromotionBySubUnionIdGet(t *testing.T) {
 	res, err := app.JdUnionOpenPromotionBysubunionidGet(map[string]interface{}{
 		"subUnionId": "xc618",
-		"positionId": positonId,
+		"positionId": positionId,
 		"chainType":  2,
-		"materialId": "https://daojia.jd.com/activity/union/middlePage/index.html?channel=wm38094",
+		"materialId": "https://hour.jd.com/activity/hourbuyh5/pages/channelPage/index?rn_args-channelId=13355&cpsAutomaticCouponPagesource=71&flag=cps&eParam=618%7Cpc%7C&cu=true&utm_source=lianmeng__2__kong&utm_medium=tuiguang&utm_campaign=t_288552067_&utm_term=4f74f71977cf4614b91353aacbfcd7a5&hasLogin=1",
 	})
 	log.Println(res, err)
 }
