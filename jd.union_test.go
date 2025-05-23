@@ -1,4 +1,4 @@
-package jingdong_union_go
+package jd_union_go
 
 import (
 	"log"

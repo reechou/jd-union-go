@@ -63,11 +63,11 @@ go test -v *.go
     package main 
 
     import (
-        "github.com/irebit/jingdong_union_go"
+        "github.com/reechou/jd-union-go"
         "log"
     )
 
-    var app = &jingdong_union_go.App{
+    var app = &jd_union_go.App{
         ID:     "xxxxxx",
         Key:    "xxxxxx",
         Secret: "xxxxxx",
