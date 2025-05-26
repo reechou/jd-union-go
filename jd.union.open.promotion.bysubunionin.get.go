@@ -23,8 +23,8 @@ type JdUnionOpenPromotionBysubunionidGetResult struct {
 }
 
 type PromotionUrl struct {
-	ClickURL        string `json:"clickURL"`
-	ShortURL        string `json:"shortURL"`
+	ClickURL        string `json:"clickURL"` // 生成推广目标的长链，长期有效
+	ShortURL        string `json:"shortURL"` // 生成的推广目标链接，以短链接形式，有效期60天
 	JCommand        string `json:"jCommand"`
 	JShortCommand   string `json:"jShortCommand"`
 	WeChatShortLink string `json:"weChatShortLink"`
