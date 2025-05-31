@@ -48,16 +48,16 @@ type OrderRow struct {
 	OrderEmt            int                `json:"orderEmt"`   // 下单设备 1.pc 2.无线
 	OrderID             int64              `json:"orderId"`    // 订单号
 	OrderTime           string             `json:"orderTime"`  // 下单时间,格式yyyy-MM-dd HH:mm:ss
-	ParentID            int                `json:"parentId"`   // 主单的订单号
+	ParentID            int64              `json:"parentId"`   // 主单的订单号
 	PayMonth            int                `json:"payMonth"`
 	Pid                 string             `json:"pid"`
 	Plus                int                `json:"plus"`       // 下单用户是否为PLUS会员 0：否，1：是
-	PopId               int                `json:"popId"`      // 商家ID
-	PositionId          int                `json:"positionId"` // 推广位ID
+	PopId               int64              `json:"popId"`      // 商家ID
+	PositionId          int64              `json:"positionId"` // 推广位ID
 	Price               decimal.Decimal    `json:"price"`
 	ProPriceAmount      decimal.Decimal    `json:"proPriceAmount"`
 	Rid                 int                `json:"rid"`
-	SiteId              int                `json:"siteId"`
+	SiteId              int64              `json:"siteId"` // 应用id
 	SkuFrozenNum        int                `json:"skuFrozenNum"`
 	SkuId               int                `json:"skuId"`
 	SkuName             string             `json:"skuName"`

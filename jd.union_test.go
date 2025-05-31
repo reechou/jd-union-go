@@ -104,12 +104,12 @@ func TestOpenOrderQuery(t *testing.T) {
 func TestJdUnionOpenOrderRowQuery(t *testing.T) {
 	// 订单行查询
 	res, err := app.JdUnionOpenOrderRowQuery(map[string]interface{}{
-		"type":      1, // 订单时间查询类型(1：下单时间，2：完成时间（购买用户确认收货时间），3：更新时间
+		"type":      3, // 订单时间查询类型(1：下单时间，2：完成时间（购买用户确认收货时间），3：更新时间
 		"startTime": "2025-05-24 22:00:00",
 		"endTime":   "2025-05-24 22:59:00",
 		"pageIndex": 1,
-		"pageSize":  500,
-		"orderId":   orderId,
+		"pageSize":  200,
+		//"orderId": orderId,
 	})
 	if err != nil {
 		log.Println(err)
