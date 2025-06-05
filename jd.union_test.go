@@ -14,7 +14,7 @@ var app = &App{
 
 // positionId 推广位 id
 var positionId = 3101765874
-var orderId = 315522556318
+var orderId = 315531961337
 
 // 获取商品类目
 func TestOpenCategoryGoodsGet(t *testing.T) {
@@ -108,7 +108,7 @@ func TestJdUnionOpenOrderRowQuery(t *testing.T) {
 		"startTime": "2025-05-24 22:00:00",
 		"endTime":   "2025-05-24 22:59:00",
 		"pageIndex": 1,
-		"pageSize":  200,
+		"pageSize":  2,
 		//"orderId": orderId,
 	})
 	if err != nil {

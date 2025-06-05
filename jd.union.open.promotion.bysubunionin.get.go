@@ -11,7 +11,7 @@ type JdUnionOpenPromotionBysubunionidGetTopLevel struct {
 }
 
 type JdUnionOpenPromotionBysubunionidGetResponse struct {
-	Result string `json:"queryResult"`
+	Result string `json:"getResult"`
 	Code   string `json:"code"`
 }
 
