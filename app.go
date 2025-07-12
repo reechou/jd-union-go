@@ -2,7 +2,7 @@ package jd_union_go
 
 import (
 	"encoding/json"
-	"errors"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -24,12 +24,15 @@ type App struct {
 }
 
 type JdUnionErrResp struct {
-	ErrorResponse ErrorResponse `json:"errorResponse"`
+	ErrorResponse ErrorResponse `json:"error_response"`
 }
 
 type ErrorResponse struct {
-	Code string `json:"code"`
-	Msg  string `json:"msg"`
+	Code      string `json:"code"`
+	Msg       string `json:"msg"`
+	ZhDesc    string `json:"zh_desc"`
+	EnDesc    string `json:"en_desc"`
+	RequestId string `json:"request_id"`
 }
 
 const RouterURL = "https://api.jd.com/routerjson"
@@ -78,7 +81,7 @@ func (app *App) Request(method string, paramJSON map[string]interface{}) ([]byte
 	}
 
 	if jdErr.ErrorResponse.Code != "" {
-		return nil, errors.New(jdErr.ErrorResponse.Msg)
+		return nil, fmt.Errorf("%s:%s:%s:%s", jdErr.ErrorResponse.Code, jdErr.ErrorResponse.Msg, jdErr.ErrorResponse.ZhDesc, jdErr.ErrorResponse.RequestId)
 	}
 	return body, nil
 }
