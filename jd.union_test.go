@@ -129,8 +129,9 @@ func TestOpenPromotionBySubUnionIdGet(t *testing.T) {
 		"subUnionId": "xc618",
 		"positionId": positionId, // 推广位ID
 		"chainType":  2,          // 转链类型（必填），1：长链， 2 ：短链 ，3： 长链+短链，默认短链，短链有效期60天
+		"command":    1,          // 是否生成短口令，1：生成，默认不生成（需向cps-qxsq@jd.com申请权限）
 		// 推广物料url
-		"materialId": "https://hour.jd.com/activity/hourbuyh5/pages/channelPage/index?rn_args-channelId=13355&cpsAutomaticCouponPagesource=71&flag=cps&eParam=618%7Cpc%7C&cu=true&utm_source=lianmeng__2__kong&utm_medium=tuiguang&utm_campaign=t_288552067_&utm_term=4f74f71977cf4614b91353aacbfcd7a5&hasLogin=1",
+		"materialId": "https://hour.jd.com/activity/hourbuyh5/pages/channelPage/index?rn_args-channelId=13355&cpsAutomaticCouponPagesource=71&flag=cps&eParam=618%7Cpc%7C&cu=true&utm_source=lianmeng__2__kong&utm_medium=tuiguang&utm_campaign=t_288552067_&utm_term=4f74f71977cf4614b91353aacbfcd7a5",
 	})
 	log.Println(res, err)
 }
